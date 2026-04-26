@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{booktabs}
+
+\title{Estudo Analítico de Diodos Semicondutores \\ \large Baseado em Sedra/Smith e Aplicações Modernas}
+\author{Cleber da Silva Alves}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução aos Semicondutores}
+O diodo é o dispositivo semicondutor mais simples, consistindo em uma junção PN. Segundo Sedra e Smith \cite{sedra}, o comportamento do diodo é fundamental para entender dispositivos mais complexos como transistores BJT e MOSFET.
+
+\section{Fundamentação Teórica e Equações}
+\subsection{A Equação de Shockley}
+A característica corrente-tensão ($I-V$) de um diodo ideal é descrita pela equação de Shockley:
+\begin{equation}
+I_D = I_S \left( e^{\frac{V_D}{n V_T}} - 1 \right)
+\end{equation}
+Onde:
+\begin{itemize}
+    \item $I_S$: Corrente de saturação reversa (típica de $10^{-15}$ A a $10^{-12}$ A).
+    \item $V_D$: Tensão aplicada no diodo.
+    \item $V_T$: Tensão térmica, $V_T = \frac{kT}{q} \approx 25 \text{ mV}$ a 300 K.
+    \item $n$: Fator de emissão ou fator de idealidade ($1 \leq n \leq 2$).
+\end{itemize}
+
+\subsection{Modelos de Análise}
+Para análise de circuitos, utilizamos três modelos principais:
+\begin{enumerate}
+    \item \textbf{Modelo Exponencial:} Mais preciso, exige métodos iterativos ou gráficos.
+    \item \textbf{Modelo de Queda de Tensão Constante:} Assume $V_D = 0,7\text{V}$ quando conduzindo.
+    \item \textbf{Modelo de Diodo Ideal:} Curto-circuito em polarização direta e circuito aberto em reversa.
+\end{enumerate}
+
+\section{Circuitos com Diodos}
+\subsection{Retificadores e Detectores de Pico}
+O retificador de meia onda converte AC em DC pulsante. Com um capacitor em paralelo à carga, obtemos um detector de pico. A tensão de ondulação (ripple) $\Delta V_r$ é dada por:
+\begin{equation}
+\Delta V_r = \frac{V_p}{f R C}
+\end{equation}
+Onde $V_p$ é a tensão de pico e $f$ a frequência da rede.
+
+\subsection{Diodo Zener e Regulação}
+O diodo Zener opera na região de ruptura. O modelo linear inclui a tensão nominal $V_Z$ e a resistência dinâmica $r_z$:
+\begin{equation}
+V_Z = V_{Z0} + r_z I_Z
+\end{equation}
+
+\section{Avanços e Tendências (2025)}
+Pesquisas recentes destacam o uso de novos materiais para superar as limitações do silício:
+\begin{itemize}
+    \item \textbf{Diodos de Nitreto de Gálio (GaN):} Oferecem maior eficiência em fontes chaveadas e carregadores rápidos \cite{gan2025}.
+    \item \textbf{Diodos de Carbeto de Silício (SiC):} Cruciais para eletrônica de potência em veículos elétricos devido à alta estabilidade térmica \cite{sic2025}.
+    \item \textbf{Perovskitas em LEDs:} Avanços em 2025 permitem LEDs azuis de alta eficiência com baixa queda de performance \cite{perovskite2025}.
+\end{itemize}
+
+\begin{thebibliography}{9}
+\bibitem{sedra} SEDRA, A. S.; SMITH, K. C. \textbf{Microelectronic Circuits}. 7th ed. Oxford University Press, 2014.
+\bibitem{gan2025} PIETRZAK, A. Development of high-efficiency and thermally stable pump diodes. \textit{SPIE Digital Library}, 2026.
+\bibitem{sic2025} TechInsights. Five Key Trends for Power Semiconductors in 2025.
+\bibitem{perovskite2025} TANG, J. et al. High-Efficiency Blue Perovskite Light-Emitting Diodes. \textit{Advanced Materials}, 2026.
+\end{thebibliography}
+
+\end{document}
